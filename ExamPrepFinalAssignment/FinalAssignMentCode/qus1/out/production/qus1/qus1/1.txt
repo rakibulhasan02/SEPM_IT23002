@@ -1,0 +1,1 @@
+Demonstrate how a child class can access a protected member of its parent class withinthe same package. Explain with example what happens when the child class is in adifferent package.
