@@ -1,0 +1,160 @@
+1.
+Demonstrate how a child class can access a protected member of its parent class withinthe same package. Explain with example what happens when the child class is in adifferent package. 2.
+Compare abstract classes and interfaces in terms of multiple inheritance. When would youprefer to use an abstract class and when an interface? [Lab 1]
+3.
+How does encapsulation ensure data security and integrity? Show with a BankAccountclass using private variables and validated methods such as setAccountNumber(String),setInitialBalance(double) that rejects null, negative or empty values. [Lab 2]
+4.
+Write Program to - (Any 3)
+(i) Find the kth smallest element in an ArrayList.
+(ii) Create a TreeMap to store the mappings of words to their frequencies in a given text.
+(iii) Implement a Queue and Stack using the PriorityQueue class with a customcomparator.
+(iv) Create a TreeMap to store the mappings of student IDs to their details.
+(v) Check if two LinkedLists are equal.
+(vi) Create a HashMap to store the mappings of employee IDs to their departments.
+5.
+Developing a multithreading-based project to simulate a car parking management systemwith classes namely - RegistrarParking – Represents a parking request made by a car;
+
+ParkingPool – Acts as a shared synchronized queue; ParkingAgent – Represents a threadthat continuously checks the pool and parks cars from the queue and a MainClass –Simulates N cars arriving concurrently to request parking. [Lab 3]
+Car ABC123 requested parking.
+Car XYZ456 requested parking.
+Agent 1 parked car ABC123.
+Agent 2 parked car XYZ456.
+...
+6.
+How does Java handle XML data using DOM and SAX parsers? Compare bothapproaches with respect to memory usage, processing speed, and use cases. Provide ascenario where SAX would be preferred over DOM.
+7.
+How does the virtual DOM in React improve performance? Compare it with the traditionalDOM and explain the diffing algorithm with a simple component update example.
+8.
+What is event delegation in JavaScript, and how does it optimize performance? Explainwith an example of a click event on dynamically added elements.
+9.
+Explain how Java Regular Expressions can be used for input validation. Write a regexpattern to validate an email address and describe how it works using the
+Pattern
+and
+Matcher
+classes.
+10.
+What are custom annotations in Java, and how can they be used to influence programbehavior at runtime using reflection? Design a simple custom annotation and show how itcan be processed with annotated elements.
+11.
+Discuss the
+Singleton
+design pattern in Java. What problem does it solve, and how doesit ensure only one instance of a class is created? Extend your answer to explain howthread safety can be achieved in a Singleton implementation.
+12.
+Describe how JDBC manages communication between a Java application and a relationaldatabase. Outline the steps involved in executing a
+SELECT
+query and fetching results.Include error handling with
+try-catch
+and
+finally
+blocks. [Lab 4]
+13.
+How do Servlets and JSPs work together in a web application following the MVC (Model-View-Controller) architecture? Provide a brief use case showing the servlet as a controller,JSP as a view, and a Java class as the model. 
+14.
+Explain the life cycle of a Java Servlet. What are the roles of the
+init()
+,
+service()
+, and
+destroy()
+methods? Discuss how servlets handle concurrent requests and how threadsafety issues may arise.
+15.
+A single instance of a servlet handles multiple requests using threads. What problems canoccur if shared resources (e.g., variables) are accessed by multiple threads? Illustrate youranswer with an example and suggest a solution using synchronization.
+16.
+Describe how the MVC (Model-View-Controller) pattern separates concerns in a Java webapplication. Explain the advantages of this structure in terms of maintainability andscalability, using a student registration system as an example.
+17.
+In a Java EE application, how does a servlet controller manage the flow between themodel and the view? Provide a brief example that demonstrates forwarding data from aservlet to a JSP and rendering a response. [Lab 5]
+18.
+Compare and contrast
+cookies
+,
+URL rewriting
+, and
+HttpSession
+as methods for sessiontracking in servlets. Discuss their advantages, limitations, and ideal use cases.
+19.
+A web application stores user login information using
+HttpSession
+. Explain how the sessionworks across multiple requests and how session timeout or invalidation is handledsecurely.
+20.
+Explain how Spring MVC handles an HTTP request from a browser. Describe the role ofthe
+@Controller
+,
+@RequestMapping
+, and
+Model
+objects in separating business logic frompresentation. Provide a brief flow example of a login form submission.
+21.
+Spring MVC uses the DispatcherServlet as a front controller. Describe its role in therequest processing workflow. How does it interact with view resolvers and handlermappings?
+22.
+How does
+PreparedStatement
+improve performance and security over
+Statement
+in JDBC?Write a short example to insert a record into a MySQL table using
+PreparedStatement
+. [Lab6]
+23.
+What is a
+ResultSet
+in JDBC and how is it used to retrieve data from a MySQL database?Briefly explain the use of
+next()
+,
+getString()
+, and
+getInt()
+methods with an example.[Lab 7]
+24.
+How does JPA manage the mapping between Java objects and relational tables? Explainwith an example using
+@Entity
+,
+@Id
+, and
+@GeneratedValue
+annotations. Discuss theadvantage of using JPA over raw JDBC.
+
+25.
+Describe the difference between the
+EntityManager
+'s
+persist()
+,
+merge()
+, and
+remove()
+operations. When would you use each method in a typical database transaction scenario?
+26.
+Design a simple CRUD application using Spring Boot and MySQL to manage studentrecords. Describe how each operation (Create, Read, Update, Delete) would beimplemented using a repository interface. [Lab 7]
+27.
+How does Spring Boot simplify the development of RESTful services? Describe how toimplement a REST controller using
+@RestController
+,
+@GetMapping
+, and
+@PostMapping
+,including JSON data handling. [Lab 8]
+28.
+Compare
+@RestController
+and
+@Controller
+in Spring Boot. In a RESTful API for a librarysystem, describe how you would structure the endpoints for books using REST principles(e.g.,
+/books
+,
+/books/{id}
+).
+29.
+How does Maven manage dependencies and build lifecycle in a Spring Boot project?Explain the structure of a typical
+pom.xml
+and how the Spring Boot starter dependenciessimplify development.
+30.
+Compare Maven and Gradle as build tools in Spring Boot projects. Discuss their syntax,performance, and dependency handling with an example of a
+build.gradle
+configurationfor a simple REST API.
+31.
+You are building a multi-module Spring Boot application (e.g., with separate modules forAPI, service, and database layers). Explain how you would structure the project usingMaven or Gradle and manage inter-module dependencies effectively.
+32.
+Demonstrate the project you developed with the important codes and Graphical UserInterface. [Lab 9]
+33.
+Socket Programming ; Example
+34.
+RMI Example- Chat system with FX
+
