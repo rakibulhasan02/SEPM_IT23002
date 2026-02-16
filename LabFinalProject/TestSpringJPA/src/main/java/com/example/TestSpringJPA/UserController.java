@@ -1,54 +1,54 @@
 package com.example.TestSpringJPA;
 
 
+//package com.example.springdbweb;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @Controller
 public class UserController {
-    private final UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    private final UserService service;
+
+    public UserController(UserService service) {
+        this.service = service;
     }
 
-    // READ: List all users
+    // READ
     @GetMapping("/users")
-    public String getUsers(Model model) {
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users", users);
+    public String list(Model model) {
+        model.addAttribute("users", service.getAllUsers());
+        model.addAttribute("userForm", new User()); // insert form এর জন্য
         return "user-list";
     }
 
-    // INSERT: Handle new user form submission
+    // INSERT
     @PostMapping("/users")
-    public String addUser(@ModelAttribute User user) {
-        userService.saveUser(user);
+    public String add(@ModelAttribute("userForm") User user) {
+        service.saveUser(user);
         return "redirect:/users";
     }
 
-    // DELETE: Delete a user by ID
-    @PostMapping("/users/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    // DELETE (Simple POST)
+    @PostMapping("/users/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        service.deleteUser(id);
         return "redirect:/users";
     }
 
-    // UPDATE (Step 2): Handle form submission
-    @PostMapping("/users/update")
-    public String updateUser(@ModelAttribute User user) {
-        userService.saveUser(user);  // saveUser will update if ID exists
-        return "redirect:/users";
-    }
-
+    // UPDATE - show form
     @GetMapping("/users/edit/{id}")
-    public String showUpdateForm(@PathVariable Long id, Model model) {
-        User user = userService.getUserById(id);
-        model.addAttribute("user", user);  // Must match th:object="${user}"
+    public String edit(@PathVariable Long id, Model model) {
+        model.addAttribute("user", service.getUserById(id));
         return "edit-user";
     }
 
+    // UPDATE - submit
+    @PostMapping("/users/update")
+    public String update(@ModelAttribute User user) {
+        service.saveUser(user); // id থাকলে update হবে
+        return "redirect:/users";
+    }
 }
-

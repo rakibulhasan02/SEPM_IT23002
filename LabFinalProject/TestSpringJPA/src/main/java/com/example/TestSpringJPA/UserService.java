@@ -1,29 +1,32 @@
 package com.example.TestSpringJPA;
+//package com.example.springdbweb;
 
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 public class UserService {
-    private final UserRepository repository;
+    private final UserRepository repo;
 
-    public UserService(UserRepository repository) {
-        this.repository = repository;
+    public UserService(UserRepository repo) {
+        this.repo = repo;
     }
 
     public List<User> getAllUsers() {
-        return repository.findAll();
-    }
-
-    public void saveUser(User user) {
-        repository.save(user);
-    }
-
-    public void deleteUser(Long id) {
-        repository.deleteById(id);
+        return repo.findAll();
     }
 
     public User getUserById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        return repo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + id));
+    }
+
+    public void saveUser(User user) {
+        repo.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        repo.deleteById(id);
     }
 }
