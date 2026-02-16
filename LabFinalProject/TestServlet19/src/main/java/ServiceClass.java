@@ -11,41 +11,6 @@ public class ServiceClass extends DBConnection {
             ps = connection.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, email);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeAll();
-        }
-        return false;
-    }
-
-    public List<String> viewDB() {
-        List<String> result = new ArrayList<>();
-        this.getConnection();
-        String sql = "SELECT NAME, EMAIL FROM MYSTUDENT";
-        try {
-            ps = connection.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                result.add("Name: " + rs.getString("NAME") + ", Email: " + rs.getString("EMAIL"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeAll();
-        }
-        return result;
-    }
-
-    public boolean updateDB(String name, String email) {
-        this.getConnection();
-        String sql = "UPDATE MYSTUDENT SET EMAIL = ? WHERE NAME = ?";
-        try {
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, name);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,12 +20,51 @@ public class ServiceClass extends DBConnection {
         return false;
     }
 
-    public boolean deleteDB(String name) {
+    public List<Student> viewDB() {
+        List<Student> result = new ArrayList<>();
         this.getConnection();
-        String sql = "DELETE FROM MYSTUDENT WHERE NAME = ?";
+        String sql = "SELECT ID, NAME, EMAIL FROM MYSTUDENT";
+        try {
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Student s = new Student();
+                s.setId(rs.getInt("ID"));
+                s.setName(rs.getString("NAME"));
+                s.setEmail(rs.getString("EMAIL"));
+                result.add(s);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAll();
+        }
+        return result;
+    }
+
+    public boolean updateDB(int id, String name, String email) {
+        this.getConnection();
+        String sql = "UPDATE MYSTUDENT SET NAME = ?, EMAIL = ? WHERE ID = ?";
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setInt(3, id);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAll();
+        }
+        return false;
+    }
+
+    public boolean deleteDB(int id) {
+        this.getConnection();
+        String sql = "DELETE FROM MYSTUDENT WHERE ID = ?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

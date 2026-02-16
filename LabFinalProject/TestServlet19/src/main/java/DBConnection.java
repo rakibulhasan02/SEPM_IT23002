@@ -23,10 +23,10 @@ public class DBConnection {
 
     public Connection getConnection() {
         //String url="jdbc:oracle:thin:@192.168.8.1:1521:liu";
-        String url="jdbc:mysql://localhost:3306/test";
+        String url="jdbc:mysql://localhost:3306/finallab";
         try {
 
-            connection = DriverManager.getConnection(url,"root","1234");
+            connection = DriverManager.getConnection(url,"root","173506");
             //connection = DriverManager.getConnection(url,"scott","tiger");
             //System.out.println(connection);
         } catch (SQLException e) {
